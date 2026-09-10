@@ -1,0 +1,16 @@
+name: Build VirtualCamDylib
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build dylib
+        run: make
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: VirtualCamDylib-output
+          path: VirtualCamDylib.dylib
