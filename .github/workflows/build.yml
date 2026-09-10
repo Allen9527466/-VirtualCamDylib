@@ -4,9 +4,11 @@ on:
     branches: [ main ]
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
+      - name: Warmup simulator
+        run: xcrun simctl list > /dev/null
       - name: Download iOS platform SDK
         run: xcodebuild -downloadPlatform iOS
       - name: Build dylib
