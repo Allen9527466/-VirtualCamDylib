@@ -1,8 +1,7 @@
 TARGET=VirtualCamDylib.dylib
 SRC=VirtualCamDylib.swift
-SDK=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk
 
 all:
-	swiftc -emit-library -o $(TARGET) $(SRC) -sdk $(SDK) -target arm64-apple-ios15.0
+	swiftc -emit-library -o $(TARGET) $(SRC) -target arm64-apple-ios15.0 -sdk $(xcrun --show-sdk-path --sdk iphoneos)
 clean:
 	rm -f $(TARGET)
